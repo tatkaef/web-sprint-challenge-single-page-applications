@@ -20,8 +20,8 @@ const styleHdr = () => {
 const Header = () => {
   return (
     <div className="header" style={styleHdr().mainDiv}>
+      <h1 style={styleHdr().h1}>LAMBDA EATS</h1>
       <div className="navLinks">
-        <h1 style={styleHdr().h1}>LAMBDA EATS</h1>
         <Link to="/">Home</Link>
         <Link to="/help">Help</Link>
       </div>

@@ -5,7 +5,7 @@ import { Switch, Route, Link } from "react-router-dom";
 const stlHome = () => {
   return {
     bigP: {
-      "background-image": `url('../Assets/Pizza.jpg')`,
+      "background-image": `url("./Assets/Pizza.jpg")`,
       display: `flex`,
       "text-align": `center`,
       "flex-direction": `column`,

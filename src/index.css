@@ -1,5 +1,5 @@
 body {
-  margin: 0;
+  margin: 20px;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
@@ -12,7 +12,26 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-#root {
+.maindiv {
   display: flex;
+  flex-direction: column;
+}
+.inputs {
+  display: flex;
+  flex-direction: column;
+}
+.container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.toppingsgroup {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.sousegroup {
+  display: flex;
+  align-items: center;
   flex-direction: column;
 }
