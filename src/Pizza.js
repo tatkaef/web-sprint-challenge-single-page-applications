@@ -52,6 +52,7 @@ const PizzaForm = (props) => {
             onChange={onInputChange}
             name="username"
             type="text"
+            className="inputone"
           />
         </label>
         <div className="sizegroup">
