@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import * as yup from "yup";
-import { Switch, Route, Link } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import FormSchema from "./FormSchema";
 
 import Header from "./Header";
@@ -23,7 +23,7 @@ const styleAll = () => {
   };
 };
 const initialFormValues = {
-  name: "",
+  username: "",
   choiceOfSize: "", // choice menu
   choiceOfSauce: "", // radio button
   addToppings: {
@@ -45,21 +45,21 @@ const initialFormValues = {
   // Choice of Substitute
   specialIns: "", // text input
   numbers: "", // choice menu
+  i: 0,
 };
 
 const initialFormErrors = {
-  name: "",
+  username: "",
   choiceOfSize: "",
   choiceOfSauce: "",
   numbers: "",
-  addToppings: "", // more then 10 true
 };
 
 const initialPizza = [];
 const initialDisabled = true;
 
 const App = () => {
-  const [pizza, setPizza] = useState([]);
+  const [pizza, setPizza] = useState([initialPizza]);
   const [formValues, setFormValues] = useState(initialFormValues); // object
   const [formErrors, setFormErrors] = useState(initialFormErrors); // object
   const [disabled, setDisabled] = useState(initialDisabled);
@@ -109,15 +109,16 @@ const App = () => {
   const checkboxChange = (name, isChecked) => {
     setFormValues({
       ...formValues,
-      termsOfService: {
-        ...formValues.termsOfService,
+      addToppings: {
+        ...formValues.addToppings,
         [name]: isChecked,
       },
     });
   };
-  const submit = () => {
+
+  const submit = (e) => {
     const newPizzaOrder = {
-      name: formValues.name.trim(),
+      username: formValues.username.trim(),
       choiceOfSize: formValues.choiceOfSize.trim(),
       choiceOfSauce: formValues.choiceOfSauce,
       addToppings: Object.keys(formValues.addToppings).filter(
@@ -126,6 +127,7 @@ const App = () => {
       specialIns: formValues.specialIns.trim(),
       numbers: formValues.numbers,
     };
+    console.log(newPizzaOrder);
     postNewPizzaOrder(newPizzaOrder);
   };
 

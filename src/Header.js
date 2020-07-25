@@ -21,9 +21,13 @@ const Header = () => {
   return (
     <div className="header" style={styleHdr().mainDiv}>
       <h1 style={styleHdr().h1}>LAMBDA EATS</h1>
-      <div className="navLinks">
-        <Link to="/">Home</Link>
-        <Link to="/help">Help</Link>
+      <div className="navlinks">
+        <Link to="/" className="navl">
+          Home
+        </Link>
+        <Link to="/help" className="navl">
+          Help
+        </Link>
       </div>
     </div>
   );

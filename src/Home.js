@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from "react";
-// import axios from "axios";
+
 import { Switch, Route, Link } from "react-router-dom";
 
 const stlHome = () => {
   return {
     bigP: {
-      "background-image": `url("./Assets/Pizza.jpg")`,
+      "background-image": `url(https://static.agrodolce.it/app/uploads/2016/02/pizza-napoletana.jpg)`,
+      "background-size": `auto`,
       display: `flex`,
       "text-align": `center`,
       "flex-direction": `column`,
       "justify-content": `center`,
+      "justify-items": `center`,
       height: `600px`,
     },
   };
@@ -18,7 +20,7 @@ const stlHome = () => {
 const Home = () => {
   return (
     <div className="bigPhoto" style={stlHome().bigP}>
-      <h2>Your favorite food, delivered while coding</h2>
+      <h1>Your favorite food, delivered while coding</h1>
       <Link to="/pizza">
         <button style={stlHome().btn}>Pizza?</button>
       </Link>

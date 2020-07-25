@@ -35,3 +35,23 @@ code {
   align-items: center;
   flex-direction: column;
 }
+h4 {
+  background-color: dimgrey;
+  color: aqua;
+}
+.navlinks {
+  display: flex;
+  justify-content: space-between;
+}
+.navl {
+  text-align: center;
+  text-decoration: none;
+  color: black;
+  border: 2px solid black;
+  width: 70px;
+}
+.navl:hover {
+  background-color: black;
+  color: beige;
+  justify-items: center;
+}

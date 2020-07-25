@@ -10,6 +10,8 @@ const PizzaForm = (props) => {
     errors,
   } = props;
 
+  console.log(values);
+
   const onSubmit = (evt) => {
     evt.preventDefault();
     submit();
@@ -23,6 +25,7 @@ const PizzaForm = (props) => {
   const onInputChange = (evt) => {
     const { name, value } = evt.target;
     console.log(name, value);
+    // debugger;
     inputChange(name, value);
   };
 
@@ -30,8 +33,10 @@ const PizzaForm = (props) => {
     <form className="form container" onSubmit={onSubmit}>
       <div className="form-group submit">
         <h2>Buld Your Own Pizza</h2>
+        <img src="https://papaspizzatogo.com/wp-content/uploads/2018/12/build-your-own-pizza-banner2.png"></img>
 
         <div className="errors">
+          <div>{errors.username}</div>
           <div>{errors.choiceOfSize}</div>
           <div>{errors.choiceOfSauce}</div>
           <div>{errors.addToppings}</div>
@@ -41,39 +46,42 @@ const PizzaForm = (props) => {
 
       <div className="form-group inputs">
         <label>
-          Name&nbsp;
+          Your Name&nbsp;
           <input
-            value={values.name}
+            value={values.username}
             onChange={onInputChange}
-            name="name"
+            name="username"
             type="text"
           />
         </label>
-
-        <label>
-          Choice of Size&nbsp;
-          <select
-            id="size"
-            name="size"
-            value={values.choiceOfSize}
-            onChange={onInputChange}
-            name="choiceOfSize"
-            type="size"
-          >
-            <option value="12">12"</option>
-            <option value="14">14"</option>
-            <option value="24">24"</option>
-            <option value="26">26"</option>
-          </select>
-        </label>
+        <div className="sizegroup">
+          <h4> &nbsp;&nbsp;Choice of Size&nbsp;</h4>
+          <label>
+            <select
+              id="size"
+              name="size"
+              value={values.choiceOfSize}
+              onChange={onInputChange}
+              name="choiceOfSize"
+              type="size"
+            >
+              <option value="" disabled={disabled}>
+                Select size
+              </option>
+              <option value="12">12"</option>
+              <option value="14">14"</option>
+              <option value="24">24"</option>
+              <option value="26">26"</option>
+            </select>
+          </label>
+        </div>
         <div className="sousegroup">
-          <h4>Choice of Sauce:</h4>
-
+          <h4>&nbsp;&nbsp;Choice of Sauce:&nbsp;</h4>
           <label>
             Original Red
             <input
               type="radio"
-              name="originalRed"
+              name="choiceOfSauce"
               value="Original Red"
               checked={values.choiceOfSauce === "Original Red"}
               onChange={onInputChange}
@@ -83,7 +91,7 @@ const PizzaForm = (props) => {
             Garlic Ranch
             <input
               type="radio"
-              name="garlicRanch"
+              name="choiceOfSauce"
               value="Garlic Ranch"
               checked={values.choiceOfSauce === "Garlic Ranch"}
               onChange={onInputChange}
@@ -93,7 +101,7 @@ const PizzaForm = (props) => {
             BBQ Sauce
             <input
               type="radio"
-              name="bBQSauce"
+              name="choiceOfSauce"
               value="BBQ Sauce"
               checked={values.choiceOfSauce === "BBQ Sauce"}
               onChange={onInputChange}
@@ -103,7 +111,7 @@ const PizzaForm = (props) => {
             Spinach Alfredo
             <input
               type="radio"
-              name="spinachAlfredo"
+              name="choiceOfSauce"
               value="Spinach Alfredo"
               checked={values.choiceOfSauce === "Spinach Alfredo"}
               onChange={onInputChange}
@@ -112,7 +120,7 @@ const PizzaForm = (props) => {
         </div>
 
         <div className="toppingsgroup">
-          <h4>Add toppings</h4>
+          <h4>&nbsp;&nbsp;Add toppings&nbsp;</h4>
           <label>
             Pepperoni
             <input
@@ -231,22 +239,28 @@ const PizzaForm = (props) => {
             />
           </label>
         </div>
+        <div className="instrutions">
+          <h4>Special Instructons</h4>
+          <label>
+            <input
+              value={values.specialIns}
+              onChange={onInputChange}
+              name="specialIns"
+              type="text"
+            />
+          </label>
+        </div>
 
         <label>
-          Special Instructons&nbsp;
           <input
-            value={values.specialIns}
+            type="number"
+            name="numbers"
+            value={values.numbers}
             onChange={onInputChange}
-            name="specialIns"
-            type="text"
+            min="1"
+            max="20"
           />
-        </label>
-
-        <label>
-          <input type="number" id="quantity" name="numbers" min="1" max="20" />
-          <button type="submit" disabled={disabled}>
-            Add to Order $17.99
-          </button>
+          <button disabled={disabled}>Add to Order $17.99</button>
         </label>
       </div>
     </form>
