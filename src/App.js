@@ -7,7 +7,7 @@ import FormSchema from "./FormSchema";
 import Header from "./Header";
 import Home from "./Home";
 import Pizza from "./Pizza";
-// import Pizzalist from "./Pizzalist";
+import Pizzalist from "./Pizzalist";
 
 const styleAll = () => {
   return {
@@ -45,7 +45,6 @@ const initialFormValues = {
   // Choice of Substitute
   specialIns: "", // text input
   numbers: "", // choice menu
-  i: 0,
 };
 
 const initialFormErrors = {
@@ -166,6 +165,9 @@ const App = () => {
 
         <Route exact path="/" component={Home} />
       </Switch>
+      {pizza.map((pizza) => {
+        return <Pizzalist key={pizza.id} details={pizza} />;
+      })}
     </div> //main div
   );
 };
